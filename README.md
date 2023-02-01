@@ -1,17 +1,23 @@
-# Console App Template
+# Google Fonts Downloader
 
-Creating Console Applications with [Laravel Console Commands](https://laravel.com/docs/artisan) based on [Symfony Console Commands](https://symfony.com/doc/current/console.html).
+Download all Google Fonts using [google-webfonts-helper](https://gwfh.mranftl.com/fonts) API by [Mario Ranftl](https://mranftl.com/).
+
+## Usage
+
+### Install
+
+```shell
+composer install
+```
+
+### Start Download
+
+```shell
+php start
+```
 
 ---
-DONT FORGET TO RENAME `bin/app` TO YOUR APP COMMAND AND CHANGE IT `composer.json`:
 
-```json
-{
-    "bin": [
-        "bin/app"
-    ]
-}
-```
 
 [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine/)
 

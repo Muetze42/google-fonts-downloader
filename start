@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?php
+
+use NormanHuth\GoogleFontDownloader\App;
+
+require __DIR__.'/vendor/autoload.php';
+
+new App('Google Fonts', null, 'download');

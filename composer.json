@@ -1,29 +1,49 @@
 {
-    "name": "norman-huth/console-app-template",
+    "name": "norman-huth/google-fonts-downloader",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "NormanHuth\\ConsoleApp\\": "src/"
+            "NormanHuth\\GoogleFontDownloader\\": "src/"
         }
     },
+    "keywords": [
+        "console",
+        "css",
+        "download",
+        "eot",
+        "google-fonts",
+        "illuminate-console",
+        "laravel-console",
+        "snippet",
+        "svg",
+        "ttf",
+        "web-fonts",
+        "woff",
+        "woff2"
+    ],
     "authors": [
         {
             "name": "Norman Huth",
             "homepage": "https://huth.it"
+        },
+        {
+            "name": "Mario Ranftl",
+            "homepage": "https://mranftl.com/"
         }
     ],
     "support": {
-        "issues": "https://github.com/Muetze42/console-app-template/issues",
-        "source": "https://github.com/Muetze42/console-app-template"
+        "issues": "https://github.com/Muetze42/google-fonts-downloader/issues",
+        "source": "https://github.com/Muetze42/google-fonts-downloader"
     },
     "require": {
         "php": "^8.0",
+        "ext-curl": "*",
         "illuminate/console": "^9.0",
-        "illuminate/events": "^9.0"
+        "illuminate/container": "^9.50",
+        "illuminate/events": "^9.0",
+        "illuminate/filesystem": "^9.50",
+        "league/flysystem": "^3.12"
     },
-    "bin": [
-        "bin/app"
-    ],
     "config": {
         "sort-packages": true
     },

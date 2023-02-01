@@ -1,6 +1,6 @@
 <?php
 
-namespace NormanHuth\ConsoleApp;
+namespace NormanHuth\GoogleFontDownloader;
 
 use Exception;
 use Illuminate\Container\Container;
