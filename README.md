@@ -10,19 +10,31 @@ Download all Google Fonts using [google-webfonts-helper](https://gwfh.mranftl.co
 composer install
 ```
 
-### Start Download
+### Start download
 
 ```shell
 php start
 ```
 
-### Customize Folders And Filename
+### Force overwrite exist ZIP files
 
-#### Target Folder
+```shell
+php start --force
+```
+
+### Change delay download execution in microseconds
+
+```shell
+php start --sleep=400000
+```
+
+### Customize folder and filename
+
+#### Target folder
 
 Edit `$targetDir` in [src/Console/Commands/DownloadCommand.php](src/Console/Commands/DownloadCommand.php)
 
-#### Filename
+#### Target filename
 
 Edit `$filename` in [src/Console/Commands/DownloadCommand.php](src/Console/Commands/DownloadCommand.php)
 

@@ -20,7 +20,7 @@ class DownloadCommand  extends Command
      *
      * @var string
      */
-    protected $signature = 'download';
+    protected $signature = 'download {--force} {--sleep=400000}';
 
     /**
      * The console command description.
@@ -36,6 +36,9 @@ class DownloadCommand  extends Command
      */
     public function handle(): int
     {
+        $force = $this->option('force');
+        $sleep = $this->option('sleep');
+
         $filesystem = new Filesystem;
 
         $curl = curl_init();
@@ -69,10 +72,10 @@ class DownloadCommand  extends Command
 
             $target = $targetDir.'/'.$filename.'.zip';
 
-            if (!$filesystem->exists($target)) {
+            if ($force || !$filesystem->exists($target)) {
                 $this->info('Downloading „'.$font['family'].'“ '.$font['version']);
                 //sleep(1);
-                usleep(400000);
+                usleep($sleep);
                 $contents = file_get_contents('https://gwfh.mranftl.com/api/fonts/'.$font['id'].'?download=zip');
                 $filesystem->put($target, $contents);
             } else {
