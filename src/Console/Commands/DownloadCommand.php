@@ -55,11 +55,9 @@ class DownloadCommand  extends Command
         curl_close($curl);
 
         $fonts = json_decode($response, true);
+        $this->info(count($fonts).' Fonts found');
         foreach ($fonts as $font) {
             /* @var array{id: string, family: string, variants: array, subsets: array, category: string, version: string, lastModified: string, popularity: int, defSubset: string, defVariant: string} $font */
-            $this->info('Downloading „'.$font['family'].'“ '.$font['version']);
-            //sleep(1);
-            usleep(300000);
 
             $targetDir = __DIR__.'/../../../fonts/'.$font['category'];
             //$filename = $font['family'].'-'.$font['version'].'-'.$font['defSubset'];
@@ -68,8 +66,18 @@ class DownloadCommand  extends Command
             if (!$filesystem->isDirectory($targetDir)) {
                 $filesystem->makeDirectory($targetDir);
             }
-            $zip = file_get_contents('https://gwfh.mranftl.com/api/fonts/'.$font['id'].'?download=zip');
-            $filesystem->put($targetDir.'/'.$filename.'.zip', $zip);
+
+            $target = $targetDir.'/'.$filename.'.zip';
+
+            if (!$filesystem->exists($target)) {
+                $this->info('Downloading „'.$font['family'].'“ '.$font['version']);
+                //sleep(1);
+                usleep(400000);
+                $contents = file_get_contents('https://gwfh.mranftl.com/api/fonts/'.$font['id'].'?download=zip');
+                $filesystem->put($target, $contents);
+            } else {
+                $this->line('„'.$font['family'].'“ '.$font['version'].' already exists');
+            }
         }
 
         return SymfonyCommand::SUCCESS;
