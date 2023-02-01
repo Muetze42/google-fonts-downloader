@@ -16,6 +16,16 @@ composer install
 php start
 ```
 
+### Customize Folders And Filename
+
+#### Target Folder
+
+Edit `$targetDir` in [src/Console/Commands/DownloadCommand.php](src/Console/Commands/DownloadCommand.php)
+
+#### Filename
+
+Edit `$filename` in [src/Console/Commands/DownloadCommand.php](src/Console/Commands/DownloadCommand.php)
+
 ---
 
 
