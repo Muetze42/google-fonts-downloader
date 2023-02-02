@@ -13,19 +13,19 @@ composer install
 ### Start download
 
 ```shell
-php start
+php gfonts
 ```
 
 ### Force overwrite exist ZIP files
 
 ```shell
-php start --force
+php gfonts --force
 ```
 
 ### Change delay download execution in microseconds
 
 ```shell
-php start --sleep=400000
+php gfonts --sleep=400000
 ```
 
 ### Customize folder and filename
