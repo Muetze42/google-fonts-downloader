@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
 
-class DownloadCommand  extends Command
+class DownloadCommand extends Command
 {
     /**
      * Base API url

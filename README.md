@@ -10,22 +10,36 @@ Download all Google Fonts using [google-webfonts-helper](https://gwfh.mranftl.co
 composer install
 ```
 
-### Start download
+### Commands
+
+#### Start download
 
 ```shell
 php gfonts
 ```
 
-### Force overwrite exist ZIP files
+#### Force overwrite exist ZIP files
 
 ```shell
 php gfonts --force
 ```
 
-### Change delay download execution in microseconds
+#### Change delay download execution in microseconds
 
 ```shell
 php gfonts --sleep=400000
+```
+
+#### Unzip Fonts
+
+```shell
+php gfonts unzip
+```
+
+#### Unzip Fonts and delete ZIP archives
+
+```shell
+php gfonts unzip --delete
 ```
 
 ### Customize folder and filename

@@ -43,7 +43,8 @@
         "illuminate/container": "^9.50",
         "illuminate/events": "^9.0",
         "illuminate/filesystem": "^9.50",
-        "league/flysystem": "^3.12"
+        "league/flysystem": "^3.12",
+        "ext-zip": "*"
     },
     "config": {
         "sort-packages": true
