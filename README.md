@@ -42,6 +42,12 @@ php gfonts unzip
 php gfonts unzip --delete
 ```
 
+#### Create CSS file for each font
+
+```shell
+php gfonts create:css
+```
+
 ### Customize folder and filename
 
 #### Target folder

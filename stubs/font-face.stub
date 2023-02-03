@@ -1,0 +1,8 @@
+@font-face {
+  font-display: swap;
+  font-family: '{family}';
+  font-style: {style};
+  font-weight: {weight};
+  src: url('{filename}.woff2') format('woff2'),
+       url('{filename}.woff') format('woff');
+}

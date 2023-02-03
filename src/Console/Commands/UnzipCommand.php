@@ -31,13 +31,6 @@ class UnzipCommand extends Command
     protected Filesystem $filesystem;
 
     /**
-     * Delete ZIP files after unzipping
-     *
-     * @var bool
-     */
-    protected bool $delete;
-
-    /**
      * Execute the console command.
      *
      * @return int
@@ -46,7 +39,6 @@ class UnzipCommand extends Command
     {
         $fontDirectory = __DIR__.'/../../../fonts';
         $this->filesystem = new Filesystem;
-        $this->delete = $this->option('delete');
 
         $this->handleFolder($fontDirectory);
 
@@ -62,6 +54,23 @@ class UnzipCommand extends Command
         $directory = realpath($directory);
 
         $files = $this->filesystem->files($directory);
+        if (count($files)) {
+            $this->handleFiles($files, $directory);
+        }
+
+        $directories = $this->filesystem->directories($directory);
+        foreach ($directories as $directory) {
+            $this->handleFolder($directory);
+        }
+    }
+
+    /**
+     * @param array $files
+     * @param string $directory
+     * @return void
+     */
+    protected function handleFiles(array $files, string $directory): void
+    {
         foreach ($files as $file) {
             $file = realpath($file);
             $mime = $this->filesystem->mimeType($file);
@@ -72,17 +81,12 @@ class UnzipCommand extends Command
                     $zip->extractTo($directory.'/'.$this->filesystem->name($file).'/');
                     $zip->close();
 
-                    if ($this->delete) {
+                    if ($this->option('delete')) {
                         $this->error('Delete '.$this->filesystem->basename($file));
                         $this->filesystem->delete($file);
                     }
                 }
             }
-        }
-
-        $directories = $this->filesystem->directories($directory);
-        foreach ($directories as $directory) {
-            $this->handleFolder($directory);
         }
     }
 }
