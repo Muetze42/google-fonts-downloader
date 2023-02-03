@@ -48,9 +48,6 @@ class CreateCSSCommand extends UnzipCommand
                     '{filename}' => $fileName,
                 ];
                 $content = str_replace(array_keys($replace), array_values($replace), $content);
-                if ($css) {
-                    $css.="\n";
-                }
                 $css.=$content;
             }
         }
